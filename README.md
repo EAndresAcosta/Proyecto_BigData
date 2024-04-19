@@ -87,12 +87,14 @@ cd home
 ```
 mkdir Datasets
 ```
+![List](/images/m2.1.png)
 ```
 exit
 ```
 ```
 docker cp <path><archivo> namenode:/home/Datasets/<archivo>
 ```
+![List](/images/m2.2.png)
 
 Ingresamos al directorio _Datasets_ y listamos para ver si estan todas ls carpetas con los archivos de las tablas:
 
@@ -153,7 +155,7 @@ Este proceso de creación de la carpeta data y copiado de los arhivos, debe pode
 
 ## 2) **HIVE**
 
-![Hive](/images/hive.jpg)
+![Hive](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgA0zu-8_NHueS2nqLBuGiseE2YRixkoYjuSsnnj4VkzkXml3wpwNWADDKDw7JPljiH3I&usqp=CAU)
 
 Creamos el entorno de _hive_ ejecuntando el script _docker-compose-v2.yml_:
 
@@ -187,6 +189,7 @@ Ejecutamos el script que copiamos anteriormente:
 ```
 hive -f Paso02.hql
 ```
+![creating tables](/images/m3.1.png)
 > Tamien puede ejecutarlo de esta manera ingresando a hive `hive` y escribiendo el siguiente comando:
 ![entering the hive environment](/images/m12.png)
 
@@ -215,6 +218,10 @@ hive
 Consultas:
 
 ```
+show databases;
+```
+![consultation](/images/m13.1.png)
+```
 use integrador;
 ```
 ```
@@ -222,7 +229,8 @@ SELECT * FROM venta LIMIT 5;
 ```
 ![consultation](/images/m13.png)
 
-***Tambien podemos verificar ingresando a HUE desde nuestro navegador con la IP:8888***
+***Tambien podemos verificar ingresando a HUE desde nuestro navegador con la IP de la pc:8888***
+
 
 ## 3) Formatos de Almacenamiento
 
@@ -243,7 +251,7 @@ docker exec -it hive-server bash
 Ejecutamos:
 
 ```
-hive -f Paso02.hql
+hive -f Paso03.hql
 ```
 Tambien como en el segundo punto ingresando a *hive*:
 
@@ -264,6 +272,10 @@ hive
 Consultas:
 
 ```
+show databases;
+```
+![consultation](/images/m3.2.png)
+```
 use integrador2;
 ```
 ```
@@ -272,3 +284,11 @@ SELECT * FROM venta LIMIT 5;
 ```
 SELECT * FROM tipo_gasto;
 ```
+![consultation](/images/m3.3.png)
+
+
+## 4) SQL
+
+La mejora en la velocidad de consulta que puede proporcionar un índice tiene el costo del procesamiento adicional para crear el índice y el espacio en disco para almacenar las referencias del índice.
+Se recomienda que los índices se basen en las columnas que utiliza en las condiciones de filtrado. El índice en la tabla puede degradar su rendimiento en caso de que no los esté utilizando.
+Crear índices en alguna de las tablas cargadas y probar los resultados:
