@@ -411,13 +411,13 @@ SELECT IdEmpleado, SUM(Precio * Cantidad) FROM venta GROUP BY IdEmpleado;
 
 ## 5) No-SQL
 
-![NOSQL](https://static.tildacdn.one/tild6262-6661-4034-b164-383063636462/What_is_SQL_Database.png)
+![NOSQL](https://geekflare.com/cdn-cgi/image/width=800,height=257,fit=crop,quality=90,gravity=auto,sharpen=1,metadata=none,format=auto,onerror=redirect/wp-content/uploads/2020/06/NoSQL.png)
 
 Se puede utilizar el entorno docker-compose-v3.yml
 
 #### 1) HBase:
 
-![HBase](https://www.openlogic.com/sites/default/files/styles/social_preview_image/public/image/2023-11/image-ol-hbase-overview.jpg.jpeg?itok=okJnQv9-)
+![HBase](https://media.licdn.com/dms/image/C5612AQHra2pTFgtFOQ/article-cover_image-shrink_600_2000/0/1564190745001?e=2147483647&v=beta&t=4ILz9WNuMe1QhmUvya2z8Nv5M99AWumNzIPWmVmTddI)
 
 Instrucciones:
 ```
@@ -457,7 +457,7 @@ Instrucciones:
 
 #### 2) MongoDB
 
-![MongoDB](https://www.openlogic.com/sites/default/files/image/2021-06/image-blog-openlogic-what-is-mongodb.png)
+![MongoDB](https://s3.amazonaws.com/info-mongodb-com/_com_assets/cms/kuzt9r42or1fxvlq2-Meta_Generic.png)
 
 Instrucciones:
 ```
