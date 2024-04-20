@@ -155,7 +155,7 @@ Este proceso de creación de la carpeta data y copiado de los arhivos, debe pode
 
 ## 2) **HIVE**
 
-![Hive](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgA0zu-8_NHueS2nqLBuGiseE2YRixkoYjuSsnnj4VkzkXml3wpwNWADDKDw7JPljiH3I&usqp=CAU)
+![Hive](https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/d12539898106.png)
 
 Creamos el entorno de _hive_ ejecuntando el script _docker-compose-v2.yml_:
 
@@ -411,9 +411,13 @@ SELECT IdEmpleado, SUM(Precio * Cantidad) FROM venta GROUP BY IdEmpleado;
 
 ## 5) No-SQL
 
+![NOSQL](https://static.tildacdn.one/tild6262-6661-4034-b164-383063636462/What_is_SQL_Database.png)
+
 Se puede utilizar el entorno docker-compose-v3.yml
 
 #### 1) HBase:
+
+![HBase](https://www.openlogic.com/sites/default/files/styles/social_preview_image/public/image/2023-11/image-ol-hbase-overview.jpg.jpeg?itok=okJnQv9-)
 
 Instrucciones:
 ```
@@ -452,6 +456,8 @@ Instrucciones:
 ```		
 
 #### 2) MongoDB
+
+![MongoDB](https://www.openlogic.com/sites/default/files/image/2021-06/image-blog-openlogic-what-is-mongodb.png)
 
 Instrucciones:
 ```
