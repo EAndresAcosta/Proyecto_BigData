@@ -289,6 +289,202 @@ SELECT * FROM tipo_gasto;
 
 ## 4) SQL
 
+![SQL](https://static.tildacdn.one/tild6262-6661-4034-b164-383063636462/What_is_SQL_Database.png)
+
 La mejora en la velocidad de consulta que puede proporcionar un índice tiene el costo del procesamiento adicional para crear el índice y el espacio en disco para almacenar las referencias del índice.
 Se recomienda que los índices se basen en las columnas que utiliza en las condiciones de filtrado. El índice en la tabla puede degradar su rendimiento en caso de que no los esté utilizando.
 Crear índices en alguna de las tablas cargadas y probar los resultados:
+
+```
+CREATE INDEX index_name
+ ON TABLE base_table_name (col_name, ...)
+ AS index_type
+ [WITH DEFERRED REBUILD]
+ [IDXPROPERTIES (property_name=property_value, ...)]
+ [IN TABLE index_table_name]
+ [ [ ROW FORMAT ...] STORED AS ...
+ | STORED BY ... ]
+ [LOCATION hdfs_path]
+ [TBLPROPERTIES (...)]
+ [COMMENT "index comment"];
+```
+
+Ejemplo:
+
+```
+hive> CREATE INDEX index_students ON TABLE students(id) 
+ > AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' 
+ > WITH DEFERRED REBUILD ;
+```
+
+ALTER INDEX index_name ON table_name [PARTITION partition_spec] REBUILD;
+
+Ejemplo:
+```
+hive> ALTER INDEX index_students ON students REBUILD; 
+```
+
+DROP INDEX [IF EXISTS] index_name ON table_name;
+```
+hive> DROP INDEX IF EXISTS index_students ON students; 
+```
+
+Vamos a ejecutar consultas en la base de datos creada en el paso 2 o 3:
+
+```
+SELECT idproducto, sum(precio) FROM venta GROUP BY idproducto;
+```
+![consultation](/images/m16.png)
+```
+SELECT v.IdCliente, SUM(v.Precio * v.Cantidad) FROM venta v JOIN cliente c USING (IdCliente) WHERE c.Localidad = 'CIUDAD DE BUENOS AIRES' GROUP BY v.IdCliente;
+```
+![consultation](/images/m16.1.png)
+```
+SELECT IdProducto, sum(Precio) AS monto FROM venta GROUP BY IdProducto ORDER BY monto DESC LIMIT 5;
+```
+![consultation](/images/m16.2.png)
+```
+SELECT year(Fecha_Entrega), count(*) AS total_vendidos FROM venta GROUP BY year(Fecha_Entrega) ORDER BY total_vendidos DESC LIMIT 3;
+```
+![consultation](/images/m16.3.png)
+```
+SELECT IdEmpleado, SUM(Precio * Cantidad) FROM venta GROUP BY IdEmpleado;
+```
+![consultation](/images/m16.4.png)
+
+Creamos la indexacion de las tablas que usamos en el paso anterior, esto para mejorar el rendimiento de las consultas:
+
+```
+CREATE INDEX index_venta_IdProducto ON TABLE venta(IdProducto) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD;
+```
+  *Esta es la forma completa de crear un index pero no me funciono lo dejo solo como para ver la estructura 👇* 
+> ```
+> CREATE INDEX index_venta_idProducto ON TABLE venta(IdProducto) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD IDXPROPERTIES ('index.created.by'='Andres AG', 'index.created.on'='2024-04-20') IN TABLE venta TBLPROPERTIES ('index.type'='compact', 'index.version'='1.0') COMMENT "Indice de idProducto para mejorar el rendimiento de las consultas";
+>```
+
+```
+CREATE INDEX index_venta_idCliente ON TABLE venta(idCliente) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD;
+```
+  *👇*
+>```
+>CREATE INDEX index_venta_idCliente ON TABLE venta(idCliente) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD IDXPROPERTIES ('index.created.by'='Andres AG', 'index.created.on'='2024-04-20') IN TABLE venta TBLPROPERTIES ('index.type'='compact', 'index.version'='1.0') COMMENT "Indice de idCliente para mejorar el rendimiento de las consultas";
+>```
+
+```
+CREATE INDEX index_venta_IdEmpleado ON TABLE venta(IdEmpleado) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD;
+```
+  *👇*
+>```
+>CREATE INDEX index_venta_IdEmpleado ON TABLE venta(IdEmpleado) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD IDXPROPERTIES ('index.created.by'='Andres AG', 'index.created.on'='2024-04-20') IN TABLE venta TBLPROPERTIES ('index.type'='compact', 'index.version'='1.0') COMMENT "Indice de IdEmpleado para mejorar el rendimiento de las consultas";
+>```
+```
+CREATE INDEX index_venta_Fecha_Entrega ON TABLE venta(Fecha_Entrega) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD;
+```
+  *👇*
+>```
+>CREATE INDEX index_venta_Fecha_Entrega ON TABLE venta(Fecha_Entrega) AS 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' WITH DEFERRED REBUILD IDXPROPERTIES ('index.created.by'='Andres AG', 'index.created.on'='2024-04-20') IN TABLE venta TBLPROPERTIES ('index.type'='compact', 'index.version'='1.0') COMMENT "Indice de Fecha_Entrega para mejorar el rendimiento de las consultas";
+>```
+
+Volvemos a ejecutar las query de antes y verificamos si el tiempo de consulta disminuye:
+
+```
+SELECT idproducto, sum(precio) FROM venta GROUP BY idproducto;
+```
+![consultation](/images/m17.png)
+```
+SELECT v.IdCliente, SUM(v.Precio * v.Cantidad) FROM venta v JOIN cliente c USING (IdCliente) WHERE c.Localidad = 'CIUDAD DE BUENOS AIRES' GROUP BY v.IdCliente;
+```
+![consultation](/images/m17.1.png)
+```
+SELECT IdProducto, sum(Precio) AS monto FROM venta GROUP BY IdProducto ORDER BY monto DESC LIMIT 5;
+```
+![consultation](/images/m17.2.png)
+```
+SELECT year(Fecha_Entrega), count(*) AS total_vendidos FROM venta GROUP BY year(Fecha_Entrega) ORDER BY total_vendidos DESC LIMIT 3;
+```
+![consultation](/images/m17.3.png)
+```
+SELECT IdEmpleado, SUM(Precio * Cantidad) FROM venta GROUP BY IdEmpleado;
+```
+![consultation](/images/m17.4.png)
+
+
+## 5) No-SQL
+
+Se puede utilizar el entorno docker-compose-v3.yml
+
+#### 1) HBase:
+
+Instrucciones:
+```
+	1- sudo docker exec -it hbase-master hbase shell
+
+		create 'personal','personal_data'
+		list 'personal'
+		put 'personal',1,'personal_data:name','Juan'
+		put 'personal',1,'personal_data:city','Córdoba'
+		put 'personal',1,'personal_data:age','25'
+		put 'personal',2,'personal_data:name','Franco'
+		put 'personal',2,'personal_data:city','Lima'
+		put 'personal',2,'personal_data:age','32'
+		put 'personal',3,'personal_data:name','Ivan'
+		put 'personal',3,'personal_data:age','34'
+		put 'personal',4,'personal_data:name','Eliecer'
+		put 'personal',4,'personal_data:city','Caracas'
+		get 'personal','4'
+
+	2-En el namenode del cluster:
+
+		hdfs dfs -put personal.csv /hbase/data/personal.csv
+
+	3-sudo docker exec -it hbase-master bash
+		
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.separator=',' -Dimporttsv.columns=HBASE_ROW_KEY,personal_data:name,personal_data:city,personal_data:age personal hdfs://namenode:9000/hbase/data/personal.csv
+		hbase shell
+		scan 'personal'
+		create 'album','label','image'
+		put 'album','label1','label:size','10'
+		put 'album','label1','label:color','255:255:255'
+		put 'album','label1','label:text','Family album'
+		put 'album','label1','image:name','holiday'
+		put 'album','label1','image:source','/tmp/pic1.jpg'
+		get 'album','label1'
+```		
+
+#### 2) MongoDB
+
+Instrucciones:
+```
+	1) 	sudo docker cp iris.csv mongodb:/data/iris.csv
+		  sudo docker cp iris.json mongodb:/data/iris.json
+
+	2)  sudo docker exec -it mongodb bash
+
+	3) 	mongoimport /data/iris.csv --type csv --headerline -d dataprueba -c iris_csv
+		  mongoimport --db dataprueba --collection iris_json --file /data/iris.json --jsonArray
+
+	4) mongosh
+		use dataprueba
+		show collections
+		db.iris_csv.find()
+		db.iris_json.find()
+	
+	5) 	mongoexport --db dataprueba --collection iris_csv --fields sepal_length,sepal_width,petal_length,petal_width,species --type=csv --out /data/iris_export.csv
+		mongoexport --db dataprueba --collection iris_json --fields sepal_length,sepal_width,petal_length,petal_width,species --type=json --out /data/iris_export.json
+				
+	6) 	Descargar desde https://search.maven.org/search?q=g:org.mongodb.mongo-hadoop los jar:
+		https://search.maven.org/search?q=a:mongo-hadoop-hive
+		https://search.maven.org/search?q=a:mongo-hadoop-spark
+		
+		sudo docker cp mongo-hadoop-hive-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-hive-2.0.2.jar
+		sudo docker cp mongo-hadoop-core-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-core-2.0.2.jar
+		sudo docker cp mongo-hadoop-spark-2.0.2.jar hive-server:/opt/hive/lib/mongo-hadoop-spark-2.0.2.jar
+		sudo docker cp mongo-java-driver-3.12.11.jar hive-server:/opt/hive/lib/mongo-java-driver-3.12.11.jar
+		
+	7) 	sudo docker cp iris.hql hive-server:/opt/iris.hql
+		sudo docker exec -it hive-server bash
+
+	8) 	hiveserver2
+		chmod 777 iris.hql
+		hive -f iris.hql
+```	
