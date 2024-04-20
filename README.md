@@ -419,7 +419,8 @@ Se puede utilizar el entorno docker-compose-v3.yml
 
 ![HBase](https://media.licdn.com/dms/image/C5612AQHra2pTFgtFOQ/article-cover_image-shrink_600_2000/0/1564190745001?e=2147483647&v=beta&t=4ILz9WNuMe1QhmUvya2z8Nv5M99AWumNzIPWmVmTddI)
 
-Instrucciones:
+<a id='Instrucciones'>Instrucciones:</a>
+
 ```
 	1- sudo docker exec -it hbase-master hbase shell
 
@@ -454,6 +455,14 @@ Instrucciones:
 		put 'album','label1','image:source','/tmp/pic1.jpg'
 		get 'album','label1'
 ```		
+
+Ejecutamos el ***Script docker-compose-v3.yml***
+![hive environment](/images/m18.png)
+
+Seguimos las instruccones: 
+[siga las instrucciones](#instrucciones)
+
+
 
 #### 2) MongoDB
 
