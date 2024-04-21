@@ -13,7 +13,7 @@ Desde la gerencia de Infraestructura no están muy convencidos de utilizar esta 
 
 * [Proyecto Big Data](#Proyecto-Integral-BigData)
 
-* [HDFS](1-**HDFS**)
+* [HDFS](1-HDFS)
 
 * [HIVE](#HIVE)
 
@@ -72,7 +72,7 @@ sudo su root
 ```
 
 
-## 1) **HDFS**
+## 1. **HDFS**
 
 ![Hadoop](https://www.railscarma.com/wp-content/uploads/2015/01/The-Tool-For-Processing-Big-Data-Hadoop.jpg)
 
