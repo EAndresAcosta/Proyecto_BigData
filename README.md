@@ -9,31 +9,26 @@ Desde la gerencia de Infraestructura no están muy convencidos de utilizar esta 
 
 ![Docker1](http://badgen.net/badge/Big/Data/blue?icon=docker) ![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)  ![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
 
-##Índice
+## Índice
 
-*[Proyecto Big Data](#Proyecto-Integral-BigData)
+* [Proyecto Big Data](#Proyecto-Integral-BigData)
 
-*[HDFS](#HDFS)
+* [HDFS](#HDFS)
 
-*[HIVE](#HIVE)
+* [HIVE](#HIVE)
 
-*[Formatos de Almacenamiento](#Formatos-de-Almacenamiento)
+* [Formatos de Almacenamiento](#Formatos-de-Almacenamiento)
 
-*[SQL](#SQL)
+* [SQL](#SQL)
 
-*[No-SQL](#No-SQL)
+* [No-SQL](#No-SQL)
 
-*[Acceso al proyecto](#acceso-proyecto)
+* [Autores](#Autores)
 
-*[Tecnologías utilizadas](#tecnologías-utilizadas)
+* [Expresiones de Gratitud](#Expresiones-de-Gratitud)
 
-*[Personas Contribuyentes](#personas-contribuyentes)
+* [Créditos](#Créditos)
 
-*[Personas-Desarrolladores del Proyecto](#personas-desarrolladores)
-
-* [Licencia](#licencia)
-
-*[Conclusión](#conclusión)
 
 ![Docker](https://www.edureka.co/blog/wp-content/uploads/2017/11/Docker-Container-C.png)
 
@@ -538,7 +533,7 @@ Instrucciones:
 
 ## Expresiones de Gratitud 🎁
 
-* Invitacion a una 🍺 o un ☕ a [Jesus Parra](https://github.com/ing-jhparra) [Santos Iparraguirre](https://github.com/SantosIparraguirre) [Facundo Corvalan](https://github.com/facu-corvalan) 
+* Invitacion a una 🍺 o un ☕ a [Jesus Parra](https://github.com/ing-jhparra) - [Santos Iparraguirre](https://github.com/SantosIparraguirre) - [Facundo Corvalan](https://github.com/facu-corvalan) 
 * Quiero expresar mi sincero agradecimiento por la excelente labor y enseñanza que han proporcionado. Su compromiso con la calidad educativa ha hecho una diferencia significativa en mi experiencia de aprendizaje. 🤓.
 * etc.
 
