@@ -7,7 +7,7 @@ Desde la gerencia de Infraestructura no están muy convencidos de utilizar esta 
 
 <h1 align="center">Entorno: Docker con Haddop, Spark y Hive</h1>
 
-![Docker1](http://badgen.net/badge/Big/Data/blue?icon=docker) ![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)  ![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
+![Docker1](http://badgen.net/badge/Big/Data/blue?icon=docker) ![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green) ![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social) [Commits](https://badgen.net/github/last-commit/micromatch/micromatch) ![Terminal](http://badgen.net/badge/icon/server-ubuntu?icon=terminal&label)
 
 ## Índice
 
