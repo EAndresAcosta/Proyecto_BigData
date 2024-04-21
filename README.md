@@ -5,10 +5,37 @@ Durante esta practica la idea es emular un ambiente de trabajo, desde un área d
 
 Desde la gerencia de Infraestructura no están muy convencidos de utilizar esta tecnología por lo que no se asigno presupuesto alguna para esta iniciativa, de forma tal que por el momento no es posible utilizar un Vendor(Azure, AWS, Google) para implementar dicho entorno, es por esto que todo el MVP se deberá implementar utilizando Docker de forma tal que se pueda hacer una demo al sector de infraestructura mostrando las ventajas de utilizar tecnologías de Big Data.
 
-# Entorno: Docker con Haddop, Spark y Hive
+<h1 align="center">Entorno: Docker con Haddop, Spark y Hive</h1>
 
-![Docker](https://www.edureka.co/blog/wp-content/uploads/2017/11/Docker-Container-C.png)  ![Spark](https://www.zdnet.com/a/img/resize/d26dbe5b8b669db1ff5e77a09668c92b558e2757/2017/11/01/d17912b7-7717-4a71-9b09-573460970f94/sparkecosystem.png?auto=webp&width=1280) 
+![Docker1](http://badgen.net/badge/Big/Data/blue?icon=docker) ![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)  ![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
 
+##Índice
+
+*[Proyecto Big Data](#Proyecto-Integral-BigData)
+
+*[HDFS](#HDFS)
+
+*[HIVE](#HIVE)
+
+*[Formatos de Almacenamiento](#Formatos-de-Almacenamiento)
+
+*[SQL](#SQL)
+
+*[No-SQL](#No-SQL)
+
+*[Acceso al proyecto](#acceso-proyecto)
+
+*[Tecnologías utilizadas](#tecnologías-utilizadas)
+
+*[Personas Contribuyentes](#personas-contribuyentes)
+
+*[Personas-Desarrolladores del Proyecto](#personas-desarrolladores)
+
+* [Licencia](#licencia)
+
+*[Conclusión](#conclusión)
+
+![Docker](https://www.edureka.co/blog/wp-content/uploads/2017/11/Docker-Container-C.png)
 
 Se pesenta un entorno Docker con Hadoop (HDFS) y la implementación de:
 * Spark
@@ -502,4 +529,19 @@ Instrucciones:
 	8) 	hiveserver2
 		chmod 777 iris.hql
 		hive -f iris.hql
-```	
+```
+
+## Autores ✒️
+
+- Henry - *Trabajo Inicial* - [Soy Henry](https://github.com/soyHenry)
+- EAndresAcosta - *Documentación* - [EAndresAcosta](https://github.com/EAndresAcosta)
+
+## Expresiones de Gratitud 🎁
+
+* Invitacion a una 🍺 o un ☕ a [Jesus Parra](https://github.com/ing-jhparra) [Santos Iparraguirre](https://github.com/SantosIparraguirre) [Facundo Corvalan](https://github.com/facu-corvalan) 
+* Quiero expresar mi sincero agradecimiento por la excelente labor y enseñanza que han proporcionado. Su compromiso con la calidad educativa ha hecho una diferencia significativa en mi experiencia de aprendizaje. 🤓.
+* etc.
+
+## Créditos
+
+Copyright (c) 2024 [EAndresAcosta](https://github.com/EAndresAcosta)
