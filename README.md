@@ -13,7 +13,7 @@ Desde la gerencia de Infraestructura no están muy convencidos de utilizar esta 
 
 * [Proyecto Big Data](#Proyecto-Integral-BigData)
 
-* [HDFS](1-HDFS)
+* [HDFS](#HDFS)
 
 * [HIVE](#HIVE)
 
